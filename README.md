@@ -1,6 +1,6 @@
-1、php artisan make:mail SendEmailTest
+1、php artisan make:mail SendEmailTest<br>
 ---------------------------------------------------------------------<br>
-   app/Mail/SendEmailTest.php
+   app/Mail/SendEmailTest.php<br>
    <?php
 	  
 	namespace App\Mail;
@@ -33,10 +33,10 @@
 	    {
 	        return $this->view('emails.test');
 	    }
-	}
+	}<br>
 ---------------------------------------------------------------------<br>
 	resources/views/emails/test.blade.php
-    Thank you Sir. :) 
+    Thank you Sir. :) <br>
 ---------------------------------------------------------------------<br>
     .env
     AIL_DRIVER=smtp
@@ -44,12 +44,12 @@
 	MAIL_PORT=587
 	MAIL_USERNAME=xyz@gmail.com
 	MAIL_PASSWORD=123456
-	MAIL_ENCRYPTION=tls
+	MAIL_ENCRYPTION=tls<br>
 ---------------------------------------------------------------------<br>
 	.env
 	QUEUE_CONNECTION=database
 	php artisan queue:table
-	php artisan migrate
+	php artisan migrate<br>
 ---------------------------------------------------------------------<br>
 	php artisan make:job SendEmailJob
 	app/Jobs/SendEmailJob.php
@@ -91,7 +91,7 @@
 	        $email = new SendEmailTest();
 	        Mail::to($this->details['email'])->send($email);
 	    }
-	}	
+	}	<br>
 ---------------------------------------------------------------------<br>
 
 	routes/web.php
@@ -102,7 +102,7 @@
 	    dispatch(new App\Jobs\SendEmailJob($details));
 	  
 	    dd('done');
-	});	
+	});	<br>
 ---------------------------------------------------------------------<br>
 	php artisan queue:listen
 
